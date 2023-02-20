@@ -1,0 +1,83 @@
+
+<!-- Hero [[ Find at scss/framework/hero.scss ]] -->
+<div class="hero" style="background-image: url(./assets/images/banner/event.jpg)"></div>
+
+<!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
+<div class="under-hero container">
+
+    <!-- Start:: section [[ Find at scss/framework/section.scss ]] -->
+    <div class="section">
+        <div class="row">
+            <div class="col-xl-7 col-md-10 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Create <span class="text-primary">Event</span></h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="row" [formGroup]="form">
+                            <div class="col-12 mb-4">
+                                <ngx-dropzone class="dropzone text-center" (change)="eventCover($event)">
+                                    <ngx-dropzone-label class="dz-message mx-auto">
+                                        <i class="ri-upload-cloud-2-line fs-2 text-dark"></i>
+                                        <span class=" d-block fs-6 mt-2">Drag & Drop or click to Upload</span>
+                                        <span class=" d-block form-text mb-4">540x320 (Max: 300KB)</span>
+                                        <button type="button" class="btn btn-light-primary">Upload cover image</button>
+                                    </ngx-dropzone-label>
+                                </ngx-dropzone>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <input type="text" class="form-control" placeholder="Event name" formControlName="name">
+                            </div>
+                            <div class="col-12 mb-4">
+                                <textarea name="venue" id="venue" cols="30" rows="4" class="form-control" placeholder="Event venue" formControlName="address"></textarea>
+                            </div>
+                            <div class="col-sm-6 mb-4">
+                                <input type="date" class="form-control" formControlName="date">
+                            </div>
+                            <div class="col-sm-6 mb-4">
+                                <input type="text" class="form-control" placeholder="Organizer email" formControlName="email">
+                            </div>
+                            <div class="col-sm-6 mb-4">
+                                <input type="text" class="form-control" placeholder="Organizer phone" formControlName="phone">
+                            </div>
+                            <div class="col-sm-6 mb-4">
+                                <input type="text" class="form-control" placeholder="Event seats" formControlName="seats">
+                            </div>
+                            <div class="col-12 mb-4">
+                                <textarea name="description" id="description" cols="30" rows="4" class="form-control" 
+                                placeholder="Write few words about event" formControlName="description"></textarea>
+                                <div class="form-text">Describe event in 100 words.</div>
+                            </div>
+                            <div class="col-12 d-flex align-items-center mb-4">
+                                <div class="form-check me-4">
+                                    <input class="form-check-input" type="radio" name="price" id="free" (change)="free = true" [checked]="free">
+                                    <label class="form-check-label" for="free">Free</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="price" id="paid" (change)="free = false" [checked]="!free">
+                                    <label class="form-check-label" for="paid">Paid</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="ri-money-dollar-circle-line"></i>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Ticket price" formControlName="price">
+                                </div>
+                                <div class="form-text">Please add ticket price if Event is paid</div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary" style="min-width: 140px;" (click)="createEvent()" [disabled]="form.invalid">Create Event</button>
+                        <button class="btn btn-outline-secondary ms-2">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End:: section -->
+
+</div>
+<!-- End:: under hero -->
